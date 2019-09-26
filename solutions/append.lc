@@ -1,0 +1,6 @@
+let rec append = \l1.\l2. if l1 = # then l2 else l1 l2 in append d:e:# a:b:#
+
+/*
+append # # = #
+append a# b:c# = a b:c#
+*/
