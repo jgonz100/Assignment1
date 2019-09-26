@@ -37,6 +37,7 @@ evalCBN (EHd e) = case (evalCBN e) of
 evalCBN (ETl e) = case (evalCBN e) of
         (ECons e1 e2) -> evalCBN (e2)
         (ENil) -> ENil
+evalCBN (ECons e1 e2) = ECons (evalCBN e1) (evalCBN e2)
 evalCBN (EFix e) = evalCBN (EApp e (EFix e))
 evalCBN (EMinusOne e) = case (evalCBN e) of
     ENat0 -> ENat0
