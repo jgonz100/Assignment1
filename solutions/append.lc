@@ -1,6 +1,13 @@
-let rec append = \l1.\l2. if l1 = # then l2 else l1 l2 in append d:e:# a:b:#
+let rec append = \l1.\l2. if l1 = # then l2
+                          else if l2 = # then l1
+                          else (hd l1):(append (tl l1) l2) in append 0:S 0:# a:b:#
 
 /*
 append # # = #
-append a# b:c# = a b:c#
+append a# b:c:# = a b:c:#
+
+append # l = l
+append a:# b:c# =  hd(l1) : append(tl l1 l2)
+                   a:append(# b:c:#)
+                   a:b:c:#
 */
