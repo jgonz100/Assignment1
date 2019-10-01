@@ -1,18 +1,9 @@
-//works
 let rec append = \l1.\l2. if l1 = # then l2
-                          else (hd l1):(append(tl l1) (l2)) in append (a:#) (b:#)
-
-//fails
-//let rec append = \l1.\l2. if l1 = # then l2
-//                          else (hd l1):(append(tl l1) (l2)) in append((append(a:#) (b:#)) (c:#))
-
+                          else (hd l1):(append(tl l1) (l2)) in append a:b:# c:d:#
 
 /*
 append # l = l
 append 0:S 0:# a:b =  hd(l1) : append(tl l1 l2)
                    a:append(# b:c:#)
                    a:b:c:#
-                  let rec append = \l1.\l2. if l1 = # then l2
-                                             else if l2 = # then l
-                                             else (hd l1):(append (tl l1) l2) in append(append(# b:#) a:#)
 */

@@ -1,1 +1,13 @@
-let rec le = \x.\y. if x = y then S 0 else
+let sub = \x.\y. if y = 0 then x else  (minus_one(sub x (minus_one y))) in sub S 0  S 0
+/*let rec le = \a.\b. if a = b then S 0
+                             else if a = 0 then 0
+                             else if b = 0 then S 0
+                             else le (minus_one x) (minus_one y) in le S S 0 S 0
+
+
+sub = x - y if y = 0 then x else minus_one(sub x (minus_one y))
+sub S S 0 S 0 = 2 - 1
+minus(sub S S 0 0)
+minus S S 0
+S 0
+*/
