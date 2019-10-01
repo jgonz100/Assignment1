@@ -1,0 +1,2 @@
+let rec sub = \a.\b. if a = 0 then y else sub (minus_one x) (minus_one y) in
+let rec le = \x.\y. if x = y then S 0 else le(sub x y) in le 0 S 0
