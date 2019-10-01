@@ -1,1 +1,0 @@
-let rec le = \x.\y. if x = y then S 0 else
