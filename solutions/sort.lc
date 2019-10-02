@@ -9,11 +9,27 @@ let rec append = \l1.\l2. if l1 = # then l2
 let rec insert = \i.\l. if l = # then i:#
                 else if le i (hd l) = S 0 then append (i:#) (l)
                 else (hd l):(insert i (tl l)) in
-let sort = \li. if li = # then #
-                else insert (hd li) (tl li) in sort(sort(S S 0:S 0:0:#))
+let rec sort = \m. if m = # then #
+               else insert (hd m) (sort (tl m)) in sort S S 0:S 0:0:#
 
 /*
-sort S S 0: S 0:# returns S 0:S S 0:#
-sort S S 0: S 0:0:# returns S 0:0:S S 0:#
-sort(sort(S S 0:S 0:0:#)) returns 0:S 0:S S 0:#
+Sort S S 0:S 0: 0:#
+insert S S 0 sort S 0: 0: #
+insert S S 0 (insert S 0 sort 0:#)
+insert S S 0 (insert S 0 (insert 0 #))
+insert S S 0 (insert S 0 0:#)
+              0:insert S 0 #
+              0:S 0:#
+insert S S 0 0:S 0:#
+0:insert(S S 0 S 0:#)
+0:S0:insert(S S 0:#)
+0:S0:SS0:#
+
+sort #  =  #
+sort n:l  =  insert n (sort l)
+
+insert n #  =  n:#
+insert n m:l  =
+    n smaller equal to m -> n:m:l
+    otherwise -> m:(insert n l)
 */
